@@ -38,9 +38,9 @@ export function format(value: number): string {
       maximumFractionDigits: 2,
     });
 
-  if (Math.abs(value) >= 1e9 - 0.005) {
+  if (Math.abs(value) >= 1e6 * 999.995) {
     return commas(value / 1e9) + "B";
-  } else if (Math.abs(value) >= 1e6 - 0.005) {
+  } else if (Math.abs(value) >= 999_999.995) {
     return commas(value / 1e6) + "M";
   } else {
     return value.toLocaleString(undefined, {

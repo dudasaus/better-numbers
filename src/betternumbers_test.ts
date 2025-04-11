@@ -5,7 +5,7 @@ import * as BetterNumbers from "./betternumbers.ts";
 
 Deno.test("format handles the billion case", () => {
   assertEquals(
-    BetterNumbers.format(999999999.995),
+    BetterNumbers.format(999.999 * 1e6),
     "1B",
   );
   assertEquals(
@@ -51,6 +51,10 @@ Deno.test("format handles the million case", () => {
     BetterNumbers.format(2.566 * 1e6),
     "2.57M",
   );
+  assertEquals(
+    BetterNumbers.format(999.994 * 1e6),
+    "999.99M",
+  );
 });
 
 Deno.test("format handles less than million case", () => {
@@ -79,7 +83,7 @@ Deno.test("format handles less than million case", () => {
     "999,999",
   );
   assertEquals(
-    BetterNumbers.format(999999.99),
+    BetterNumbers.format(999999.994),
     "999,999.99",
   );
 });
