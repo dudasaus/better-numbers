@@ -1,5 +1,7 @@
 # Better Numbers
 
+[![JSR](https://jsr.io/badges/@dudasaus/better-numbers/score)](https://jsr.io/@dudasaus/better-numbers)
+
 A JavaScript library for parsing and formatting numbers.
 
 ## Usage
