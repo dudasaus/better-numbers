@@ -1,7 +1,48 @@
 import { assertEquals } from "jsr:@std/assert";
 import * as BetterNumbers from "./betternumbers.ts";
 
-// TODO: Test the parse cases.
+Deno.test("parse", () => {
+  assertEquals(
+    BetterNumbers.parse("nope"),
+    NaN,
+  );
+  assertEquals(
+    BetterNumbers.parse("1e6"),
+    1e6,
+  );
+  assertEquals(
+    BetterNumbers.parse("8%"),
+    0.08,
+  );
+  assertEquals(
+    BetterNumbers.parse("1,000,012.9771"),
+    1000012.9771,
+  );
+  assertEquals(
+    BetterNumbers.parse("401k"),
+    401000,
+  );
+  assertEquals(
+    BetterNumbers.parse("  401k  "),
+    401000,
+  );
+  assertEquals(
+    BetterNumbers.parse("7.999M"),
+    7999000,
+  );
+  assertEquals(
+    BetterNumbers.parse("0.5B"),
+    500000000,
+  );
+  assertEquals(
+    BetterNumbers.parse("-1.7m"),
+    -1700000,
+  );
+  assertEquals(
+    BetterNumbers.parse("-8b"),
+    -8000000000,
+  );
+});
 
 Deno.test("format handles the billion case", () => {
   assertEquals(
